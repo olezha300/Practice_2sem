@@ -1,0 +1,19 @@
+﻿version: '3.2'
+
+services:
+  reports.webapi:
+    image: reports.webapi
+    build:
+      context: .
+      dockerfile: Presentation/Reports.WebApi/Dockerfile
+  
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
